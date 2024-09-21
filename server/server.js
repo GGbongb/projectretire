@@ -212,6 +212,8 @@ app.post('/api/calculate', (req, res) => {
   logger.info(`延迟月数: ${d}个月, 改革后退休时间: ${A}年${B}月, 最低缴费年限: ${minimumYears}年${addedMonths ? addedMonths : 0}个月`);
 });
 
+// 静态文件处理
+app.use(express.static(path.join(__dirname, '../retirement-calculator/build')));
 
 // React 路由处理
 app.get('*', (req, res) => {
