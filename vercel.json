@@ -4,21 +4,20 @@
   "builds": [
     {
       "src": "retirement-calculator/package.json",
-      "use": "@vercel/static-build",   
-      "config": { "distDir": "retirement-calculator/build" }
+      "use": "@vercel/static-build"
     },
     {
       "src": "server/server.js",
-      "use": "@vercel/node"  
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",   
+      "src": "/api/(.*)",
       "dest": "/server/server.js"
     },
     {
-      "src": "/(.*)",   
+      "src": "/(.*)",
       "dest": "/retirement-calculator/build/$1"
     }
   ]
