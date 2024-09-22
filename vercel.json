@@ -1,24 +1,18 @@
 {
   "version": 2,
-  "name": "retirement-app",
   "builds": [
     {
       "src": "retirement-calculator/package.json",
-      "use": "@vercel/static-build"
+      "use": "@vercel/static-build",
+      "config": { "distDir": "build" }
     },
     {
-      "src": "server/server.js",
+      "src": "api/server.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/server/server.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/retirement-calculator/build/$1"
-    }
+    { "src": "/api/(.*)", "dest": "/api/server.js" },
+    { "src": "/(.*)", "dest": "/retirement-calculator/build/index.html" }
   ]
 }
