@@ -10,7 +10,7 @@ app.use(express.json());
 
 // 创建日志记录器
 const logger = winston.createLogger({
-  level: 'info',
+  level: 'error',
   format: winston.format.combine(
     winston.format.timestamp(),
     winston.format.printf(({ timestamp, level, message }) => {
